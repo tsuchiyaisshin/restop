@@ -1,8 +1,8 @@
 <template>
   <div>
     <GmapMap
-      :center="{lat:10, lng:10}"
-      :zoom="7"
+      :center="center"
+      :zoom="15"
       map-type-id="terrain"
       style="width: 500px; height: 300px"
     >
@@ -24,9 +24,24 @@
     name: 'Map',
     data() {
       return {
-        markers: [{position: {lat: 10, lng: 10}}]
+        markers: [{position: {lat: 10, lng: 10}}],
+        center: {lat: 10, lng: 10},
       }
     },
+    mounted() {
+      if (navigator.geolocation) {
+        // callback関数内でthis使えないため
+        let vm = this
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            vm.center.lat = position.coords.latitude
+            vm.center.lng = position.coords.longitude
+            vm.markers[0].position.lat = position.coords.latitude
+            vm.markers[0].position.lng = position.coords.longitude
+          },
+        )
+      }
+    }
   }
 
 </script>
