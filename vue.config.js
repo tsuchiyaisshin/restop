@@ -1,8 +1,6 @@
-require('events').EventEmitter.defaultMaxListeners = 50
-
 module.exports = {
   transpileDependencies: ['vuetify'],
-  lintOnSave: process.env.NODE_ENV !== 'production',
+  lintOnSave: true,
   pluginOptions: {
     i18n: {
       locale: 'en',
@@ -11,7 +9,6 @@ module.exports = {
       enableInSFC: false,
     },
   },
-
   devServer: {
     port: 9000,
     disableHostCheck: true,
