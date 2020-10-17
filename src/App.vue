@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <MapView />
+    <v-container>
+      <MapView />
+    </v-container>
   </div>
 </template>
 
