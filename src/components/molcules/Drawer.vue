@@ -1,7 +1,8 @@
 <template>
   <v-navigation-drawer
-    absolute
-    permanent
+    app
+    mobile-break-point="960"
+    width="260"
   >
     <v-list-item>
       <v-list-item-content>
