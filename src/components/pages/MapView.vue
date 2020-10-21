@@ -1,30 +1,28 @@
 <template>
-  <div>
-    <GmapMap
-      :center="center"
-      :zoom="15"
-      map-type-id="terrain"
-      style="width: 500px; height: 300px"
-      :options="{
+  <GmapMap
+    :center="center"
+    :zoom="15"
+    map-type-id="terrain"
+    style="width: 100%; height: 600px"
+    :options="{
           zoomControl: false,
           mapTypeControl: false,
           scaleControl: false,
           streetViewControl: false,
-          rotateControl: true,
+          rotateControl: false,
           fullscreenControl: false,
           disableDefaultUi: true
         }"
-    >
-      <GmapMarker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        :clickable="true"
-        :draggable="true"
-        @click="center=m.position"
-      />
-    </GmapMap>
-  </div>
+  >
+    <GmapMarker
+      :key="index"
+      v-for="(m, index) in markers"
+      :position="m.position"
+      :clickable="true"
+      :draggable="true"
+      @click="center=m.position"
+    />
+  </GmapMap>
 </template>
 
 <script>
@@ -33,6 +31,10 @@
     name: 'Map',
     data() {
       return {
+        windowSize: {
+          x: 0,
+          y: 0,
+        },
         markers: [{position: {lat: 35.617325, lng: 139.564624}}, {
           position: {
             lat: 35.616463,
@@ -63,6 +65,7 @@
       }
     },
     mounted() {
+      this.onResize()
       if (navigator.geolocation) {
         // callback関数内でthis使えないため
         let vm = this
@@ -75,10 +78,21 @@
           },
         )
       }
-    }
+    },
+    methods: {
+      onResize() {
+        this.windowSize = {x: window.innerWidth, y: window.innerHeight}
+      },
+    },
   }
 
 </script>
 
 <style scoped>
+  .styles {
+    --width: 600px;
+    --height: 400px;
+    width: var(--width);
+    height: var(--height);
+  }
 </style>

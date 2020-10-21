@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <v-container>
-      <MapView />
-    </v-container>
+    <v-app>
+      <v-content>
+        <v-row>
+          <drawer></drawer>
+          <router-view></router-view>
+        </v-row>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
 <script>
-import MapView from './components/MapView.vue'
+import Drawer from "./components/molcules/Drawer";
 
 export default {
   name: 'App',
   components: {
-    MapView
+    Drawer,
   }
 }
 </script>
@@ -24,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
