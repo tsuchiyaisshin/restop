@@ -21,6 +21,7 @@
       :position="m.position"
       :clickable="true"
       :draggable="false"
+      :icon="{ url: require('../../assets/markers/food.svg')}"
       @click="center=m.position"
     />
   </GmapMap>
