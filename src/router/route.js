@@ -1,17 +1,24 @@
 export default [
   {
-    name: 'MapView',
+    name: 'MainTemplate',
     path: '/',
-    component: () => import('../components/pages/MapView'),
+    component: () => import('../components/template/MainTemplate'),
+    children: [
+      {
+        name: 'MapView',
+        path: '/',
+        component: () => import('../components/pages/MapView'),
+      },
+      {
+        name: 'History',
+        path: '/history',
+        component: () => import('../components/pages/History'),
+      },
+      {
+        name: 'Account',
+        path: '/account',
+        component: () => import('../components/pages/Account'),
+      }
+    ]
   },
-  {
-    name: 'History',
-    path: '/history',
-    component: () => import('../components/pages/History'),
-  },
-  {
-    name: 'Account',
-    path: '/account',
-    component: () => import('../components/pages/Account'),
-  }
 ]

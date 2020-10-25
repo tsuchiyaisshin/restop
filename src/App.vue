@@ -2,10 +2,8 @@
   <div id="app">
     <v-app>
       <v-content>
-        <v-row no-gutters>
-          <drawer></drawer>
-          <router-view></router-view>
-        </v-row>
+        <drawer></drawer>
+        <router-view></router-view>
       </v-content>
     </v-app>
   </div>
