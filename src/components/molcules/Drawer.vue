@@ -7,7 +7,14 @@
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="title">
-          RESTOP
+          <div>
+            <v-img
+              src="../../assets/restop-logo.svg"
+              style="display: inline-block; _display: inline;"
+              width="20"
+            ></v-img>
+            RESTOP
+          </div>
         </v-list-item-title>
         <v-list-item-subtitle>
           rest spot in 1 second!

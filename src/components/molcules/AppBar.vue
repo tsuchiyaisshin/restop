@@ -3,6 +3,13 @@
     color="white"
     elevate-on-scroll
   >
+    <v-avatar>
+      <v-img
+        lazy-src="https://picsum.photos/id/11/10/6"
+        src="https://picsum.photos/id/11/500/300"
+      >
+      </v-img>
+    </v-avatar>
     <v-spacer></v-spacer>
 
     <v-btn icon>
