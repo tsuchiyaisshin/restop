@@ -1,9 +1,10 @@
 <template>
   <GmapMap
+    class="ma-3"
     :center="center"
     :zoom="15"
     map-type-id="terrain"
-    style="width: 100%; height: 600px"
+    :style="$vuetify.breakpoint.smAndDown ? 'width: 300px; height: 600px' : 'width: 98%; height: 800px'"
     :options="{
           zoomControl: false,
           mapTypeControl: false,
