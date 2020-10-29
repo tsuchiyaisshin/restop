@@ -1,29 +1,6 @@
 <template>
   <v-container>
     <v-row no-gutters>
-      <v-col cols="12" md="4">
-        <v-avatar
-          size="200"
-        >
-          <v-hover v-slot="{ hover }">
-            <v-img
-              lazy-src="https://picsum.photos/id/11/10/6"
-              src="https://picsum.photos/id/11/500/300"
-            >
-              <v-expand-transition>
-                <div
-                  v-if="hover"
-                  class="d-flex transition-fast-in-fast-out light-green darken-2 v-card--reveal display-3 white--text"
-                  style="height: 100%; width: 100%; padding-left: 50px; padding-top: 70px"
-                  @click="editImage"
-                >
-                  Edit
-                </div>
-              </v-expand-transition>
-            </v-img>
-          </v-hover>
-        </v-avatar>
-      </v-col>
       <v-col cols="12" md="6">
         <v-card ref="form" class="ma-3">
           <v-card-text>
@@ -117,6 +94,29 @@
             </v-btn>
           </v-card-actions>
         </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-avatar
+          size="200"
+        >
+          <v-hover v-slot="{ hover }">
+            <v-img
+              lazy-src="https://picsum.photos/id/11/10/6"
+              src="https://picsum.photos/id/11/500/300"
+            >
+              <v-expand-transition>
+                <div
+                  v-if="hover"
+                  class="d-flex transition-fast-in-fast-out light-green darken-2 v-card--reveal display-3 white--text"
+                  style="height: 100%; width: 100%; padding-left: 50px; padding-top: 70px"
+                  @click="editImage"
+                >
+                  Edit
+                </div>
+              </v-expand-transition>
+            </v-img>
+          </v-hover>
+        </v-avatar>
       </v-col>
     </v-row>
   </v-container>

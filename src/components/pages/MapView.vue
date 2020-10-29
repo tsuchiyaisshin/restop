@@ -15,6 +15,13 @@
           disableDefaultUi: true
         }"
   >
+    <GmapInfoWindow
+      :options="infoOptions"
+      :position="infoWindowPos"
+      :opened="infoWinOpen"
+      @closeclick="infoWinOpen=false"
+    >
+      hoge</GmapInfoWindow>
     <GmapMarker
       :key="index"
       v-for="(m, index) in markers"
@@ -23,7 +30,7 @@
       :clickable="true"
       :draggable="false"
       :icon="{ url: require('../../assets/markers/' + m.icon)}"
-      @click="center=m.position"
+      @click="toggleInfoWindow(m, m.position)"
     />
   </GmapMap>
 </template>
@@ -34,10 +41,14 @@
     name: 'Map',
     data() {
       return {
-        windowSize: {
-          x: 0,
-          y: 0,
+        infoOptions: {
+          pixelOffset: {
+            width: 0,
+            height: -35
+          }
         },
+        infoWindowPos: null,
+        infoWinOpen: false,
         markers: [
           {
             title: '現在地',
@@ -145,19 +156,15 @@
       }
     },
     methods: {
-      onResize() {
-        this.windowSize = {x: window.innerWidth, y: window.innerHeight}
-      },
+      toggleInfoWindow(marker, position) {
+        this.center=position
+        this.infoWindowPos = marker.position;
+        this.infoWinOpen = true;
+      }
     },
   }
 
 </script>
 
 <style scoped>
-  .styles {
-    --width: 600px;
-    --height: 400px;
-    width: var(--width);
-    height: var(--height);
-  }
 </style>
