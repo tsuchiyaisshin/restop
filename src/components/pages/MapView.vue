@@ -3,7 +3,7 @@
     class="ma-3"
     :center="center"
     :zoom="15"
-    map-type-id="terrain"
+    map-type-id="satellite"
     :style="$vuetify.breakpoint.smAndDown ? 'width: 300px; height: 600px' : 'width: 98%; height: 800px'"
     :options="{
           zoomControl: false,
@@ -12,7 +12,8 @@
           streetViewControl: false,
           rotateControl: false,
           fullscreenControl: false,
-          disableDefaultUi: true
+          disableDefaultUi: false,
+          clickableIcons: false,
         }"
   >
     <GmapInfoWindow
