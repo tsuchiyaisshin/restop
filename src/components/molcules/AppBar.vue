@@ -1,8 +1,5 @@
 <template>
-  <v-app-bar
-    color="white"
-    elevate-on-scroll
-  >
+  <v-app-bar color="white" elevate-on-scroll>
     <v-avatar>
       <v-img
         lazy-src="https://picsum.photos/id/11/10/6"
@@ -24,15 +21,12 @@
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-app-bar>
-  </v-app-bar>
 </template>
 
 <script>
-  export default {
-    name: "AppBar"
-  }
+export default {
+  name: 'AppBar',
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -6,13 +6,11 @@
 </template>
 
 <script>
-  import AppBar from "../molcules/AppBar";
-  export default {
-    name: "MainTemplate",
-    components: {AppBar}
-  }
+import AppBar from '../molcules/AppBar'
+export default {
+  name: 'MainTemplate',
+  components: { AppBar },
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

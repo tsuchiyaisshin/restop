@@ -1,9 +1,5 @@
 <template>
-  <v-navigation-drawer
-    app
-    mobile-break-point="960"
-    width="260"
-  >
+  <v-navigation-drawer app mobile-break-point="960" width="260">
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="title">
@@ -24,10 +20,7 @@
 
     <v-divider></v-divider>
 
-    <v-list
-      dense
-      nav
-    >
+    <v-list dense nav>
       <v-list-item
         v-for="item in items"
         :key="item.title"
@@ -47,21 +40,19 @@
 </template>
 
 <script>
-  export default {
-    name: "Drawer",
-    data() {
-      return {
-        items: [
-          {title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/'},
-          {title: 'History', icon: 'mdi-history', path: 'history'},
-          {title: 'Account', icon: 'mdi-account', path: 'account'},
-        ],
-        right: null,
-      }
-    },
-  }
+export default {
+  name: 'Drawer',
+  data() {
+    return {
+      items: [
+        { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/' },
+        { title: 'History', icon: 'mdi-history', path: 'history' },
+        { title: 'Account', icon: 'mdi-account', path: 'account' },
+      ],
+      right: null,
+    }
+  },
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

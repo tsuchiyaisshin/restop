@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import Drawer from "./components/molcules/Drawer";
+import Drawer from './components/molcules/Drawer'
 
 export default {
   name: 'App',
   components: {
     Drawer,
-  }
+  },
 }
 </script>
 

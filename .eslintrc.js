@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['prettier', 'prettier/babel', 'prettier/vue'],
+  extends: ['vuetify', 'prettier', 'prettier/babel', 'prettier/vue'],
   plugins: ['prettier'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
