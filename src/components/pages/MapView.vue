@@ -39,7 +39,7 @@
       </div>
     </GmapInfoWindow>
     <GmapMarker
-      v-for="(m, index) in markers"
+      v-for="(m, index) in markers.marker"
       :key="index"
       :title="m.title"
       :position="m.position"
@@ -52,11 +52,13 @@
 </template>
 
 <script>
+import markers from '../../assets/marker.json'
 export default {
   name: 'Map',
   data() {
     return {
       spotName: '',
+      markers: markers,
       businessHours: '',
       infoOptions: {
         pixelOffset: {
@@ -66,106 +68,7 @@ export default {
       },
       infoWindowPos: null,
       infoWinOpen: false,
-      markers: [
-        {
-          title: '現在地',
-          position: {
-            lat: 35.617325,
-            lng: 139.564624,
-          },
-          icon: 'current.svg',
-        },
-        {
-          title: 'ガスト',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.616463,
-            lng: 139.544759,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: 'ドトール',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.615218,
-            lng: 139.542351,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: 'カフェ',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.620048,
-            lng: 139.561672,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: 'ジョナサン',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.612794,
-            lng: 139.53965,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: '喫茶店',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.622104,
-            lng: 139.550595,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: 'マクドナルド',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.621952,
-            lng: 139.549783,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: 'モコモコシップ',
-          time: '24時間',
-          position: {
-            lat: 35.616292,
-            lng: 139.564151,
-          },
-          icon: 'karaoke.svg',
-        },
-        {
-          title: 'ケンタッキー',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.616577,
-            lng: 139.564022,
-          },
-          icon: 'food.svg',
-        },
-        {
-          title: 'モコモコ',
-          time: '24時間',
-          position: {
-            lat: 35.618014,
-            lng: 139.566869,
-          },
-          icon: 'karaoke.svg',
-        },
-        {
-          title: '喫茶店',
-          time: '10:00 ~ 19:00',
-          position: {
-            lat: 35.618705,
-            lng: 139.56245,
-          },
-          icon: 'food.svg',
-        },
-      ],
+
       center: { lat: 35.617325, lng: 139.564624 },
     }
   },
