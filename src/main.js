@@ -3,6 +3,8 @@ import App from './App.vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import router from './router/index'
 import vuetify from './plugins/vuetify'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -11,9 +13,10 @@ Vue.use(VueGoogleMaps, {
     region: 'JP',
     language: 'ja',
   },
-})
+}, VueAxios, axios)
 
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 
 new Vue({
   router,

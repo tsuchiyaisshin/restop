@@ -35,7 +35,7 @@
       </div>
       <br />
       <div>
-        <v-btn color="blue" dark>経路を表示</v-btn>
+        <v-btn color="blue" dark @click="searchRoute">経路を表示</v-btn>
       </div>
     </GmapInfoWindow>
     <GmapMarker
@@ -92,6 +92,8 @@ export default {
         this.infoWinOpen = true
       }
     },
+    searchRoute() {
+    }
   },
 }
 </script>
