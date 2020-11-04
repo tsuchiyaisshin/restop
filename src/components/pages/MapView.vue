@@ -92,8 +92,7 @@ export default {
         this.infoWinOpen = true
       }
     },
-    searchRoute() {
-    }
+    searchRoute() {},
   },
 }
 </script>

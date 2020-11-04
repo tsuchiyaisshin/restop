@@ -6,14 +6,19 @@ import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: process.env.VUE_APP_GOOGLE_MAP_API,
-    libraries: 'places',
-    region: 'JP',
-    language: 'ja',
+Vue.use(
+  VueGoogleMaps,
+  {
+    load: {
+      key: process.env.VUE_APP_GOOGLE_MAP_API,
+      libraries: 'places',
+      region: 'JP',
+      language: 'ja',
+    },
   },
-}, VueAxios, axios)
+  VueAxios,
+  axios,
+)
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
