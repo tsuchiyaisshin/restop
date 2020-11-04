@@ -68,19 +68,17 @@ export default {
       },
       infoWindowPos: null,
       infoWinOpen: false,
-
       center: { lat: 35.617325, lng: 139.564624 },
     }
   },
   mounted() {
-    this.onResize()
     if (navigator.geolocation) {
       const vm = this
       navigator.geolocation.getCurrentPosition(function(position) {
         vm.center.lat = position.coords.latitude
         vm.center.lng = position.coords.longitude
-        vm.markers[0].position.lat = position.coords.latitude
-        vm.markers[0].position.lng = position.coords.longitude
+        vm.markers.marker[0].position.lat = position.coords.latitude
+        vm.markers.marker[0].position.lng = position.coords.longitude
       })
     }
   },
