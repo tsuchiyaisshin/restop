@@ -169,6 +169,24 @@
         "lng": 139.521598
       },
       "icon": "car.svg"
+    },
+    {
+      "title": "コワーキングスペース喜多見",
+      "time": "14:00 ~ 20:00",
+      "position": {
+        "lat": 35.638716,
+        "lng": 139.586573
+      },
+      "icon": "co-working-space.svg"
+    },
+    {
+      "title": "nokutica /ノクチカ（シェアオフィス、レンタルスペース、コワーキングスペース）",
+      "time": "10:00 ~ 18:00",
+      "position": {
+        "lat": 35.600761,
+        "lng": 139.608958
+      },
+      "icon": "co-working-space.svg"
     }
   ]
 }
