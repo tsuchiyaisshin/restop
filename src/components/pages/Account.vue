@@ -67,10 +67,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-dialog
-      v-model="dialog"
-      width="400"
-    >
+    <v-dialog v-model="dialog" width="400">
       <v-card ref="form" class="pa-4">
         <v-card-text>
           <v-row align="center" no-gutters>
@@ -111,12 +108,12 @@
             ref="address"
             v-model="address"
             :rules="[
-            () => !!address || 'This field is required',
-            () =>
-              (!!address && address.length <= 25) ||
-              'Email must be less than 25 characters',
-            addressCheck,
-          ]"
+              () => !!address || 'This field is required',
+              () =>
+                (!!address && address.length <= 25) ||
+                'Email must be less than 25 characters',
+              addressCheck,
+            ]"
             label="Email"
             placeholder="example@example.com"
             counter="25"
