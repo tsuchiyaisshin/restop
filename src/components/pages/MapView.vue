@@ -66,6 +66,7 @@ export default {
           height: -35,
         },
       },
+      info: '',
       infoWindowPos: null,
       infoWinOpen: false,
       center: { lat: 35.617325, lng: 139.564624 },
@@ -92,7 +93,12 @@ export default {
         this.infoWinOpen = true
       }
     },
-    searchRoute() {},
+    async searchRoute() {
+      await this.$http
+        .get('localhost:8080/getRoute?origin=aaaa&direction=bbbb')
+        .then(response => (this.info = response))
+      console.log(this.info)
+    },
   },
 }
 </script>
