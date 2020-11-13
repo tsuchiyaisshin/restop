@@ -95,7 +95,7 @@ export default {
     },
     async searchRoute() {
       await this.$http
-        .get('localhost:8080/getRoute?origin=aaaa&direction=bbbb')
+        .get('http://localhost:8080/getRoute?origin=aaaa&direction=bbbb')
         .then(response => (this.info = response))
       console.log(this.info)
     },
