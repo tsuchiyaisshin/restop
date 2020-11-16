@@ -3,7 +3,7 @@ export const api = {
   '@gateway': {
     url: '',
   },
-
+  //ネミいいいい
   '@develop': {
     url: 'localhost:8080/',
   }
