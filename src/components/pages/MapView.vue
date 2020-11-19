@@ -53,6 +53,7 @@
 
 <script>
 import markers from '../../assets/marker.json'
+import { api } from '../../apis/api'
 export default {
   name: 'Map',
   data() {
@@ -94,10 +95,12 @@ export default {
       }
     },
     async searchRoute() {
-      await this.$http
-        .get('http://localhost:8080/getRoute?origin=aaaa&direction=bbbb')
-        .then(response => (this.info = response))
-      console.log(this.info)
+      let result
+      result = await api.getRoute(
+        this.markers.marker[0].position,
+        this.direction,
+      )
+      console.log(result)
     },
   },
 }
