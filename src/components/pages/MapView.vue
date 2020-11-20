@@ -71,6 +71,7 @@ export default {
       infoWindowPos: null,
       infoWinOpen: false,
       center: { lat: 35.617325, lng: 139.564624 },
+      direction: null,
     }
   },
   mounted() {
@@ -88,6 +89,7 @@ export default {
     toggleInfoWindow(marker, position) {
       if (marker.title !== '現在地') {
         this.center = position
+        this.direction = position
         this.infoWindowPos = marker.position
         this.spotName = marker.title
         this.businessHours = marker.time
@@ -95,11 +97,11 @@ export default {
       }
     },
     async searchRoute() {
-      let result
-      result = await api.getRoute(
-        this.markers.marker[0].position,
-        this.direction,
-      )
+      const params = {
+        origin: this.markers.marker[0].position,
+        direction: this.markers.marker[0].position,
+      }
+      const result = await api.getRoute(params)
       console.log(result)
     },
   },
