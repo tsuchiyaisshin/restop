@@ -20,6 +20,7 @@
       clickableIcons: false,
     }"
   >
+    <gmap-polyline v-bind:path.sync="path" v-bind:options="{ strokeColor:'#ff0000'}"></gmap-polyline>
     <GmapInfoWindow
       :options="infoOptions"
       :position="infoWindowPos"
@@ -70,8 +71,9 @@ export default {
       info: '',
       infoWindowPos: null,
       infoWinOpen: false,
-      center: { lat: 35.617325, lng: 139.564624 },
+      center: { lat: 135, lng: 50 },
       direction: null,
+      path: [],
     }
   },
   mounted() {
@@ -102,6 +104,8 @@ export default {
         direction: this.markers.marker[0].position,
       }
       const result = await api.getRoute(params)
+      this.path = result.routes[0].overviewPolyline.encodedPath
+      console.log(this.path)
       console.log(result)
     },
   },
