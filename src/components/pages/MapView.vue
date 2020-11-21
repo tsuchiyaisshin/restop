@@ -20,7 +20,10 @@
       clickableIcons: false,
     }"
   >
-    <gmap-polyline v-bind:path.sync="path" v-bind:options="{ strokeColor:'#ff0000'}"></gmap-polyline>
+    <gmap-polyline
+      :path.sync="path"
+      :options="{ strokeColor: '#ff0000' }"
+    ></gmap-polyline>
     <GmapInfoWindow
       :options="infoOptions"
       :position="infoWindowPos"
@@ -55,6 +58,7 @@
 <script>
 import markers from '../../assets/marker.json'
 import { api } from '../../apis/api'
+
 export default {
   name: 'Map',
   data() {
@@ -104,7 +108,13 @@ export default {
         direction: this.markers.marker[0].position,
       }
       const result = await api.getRoute(params)
-      this.path = result.routes[0].overviewPolyline.encodedPath
+      const polyUtil = require('polyline-encoded')
+      const decodeArray = polyUtil.decode(
+        result.routes[0].overviewPolyline.encodedPath,
+      )
+      decodeArray.forEach(latlngArray => {
+        this.path.push({ lat: latlngArray[0], lng: latlngArray[1] })
+      })
       console.log(this.path)
       console.log(result)
     },
