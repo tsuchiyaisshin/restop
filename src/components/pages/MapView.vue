@@ -22,7 +22,7 @@
   >
     <gmap-polyline
       :path.sync="path"
-      :options="{ strokeColor: '#ff0000' }"
+      :options="{ strokeColor: '#34eba8', strokeWeight: 5 }"
     ></gmap-polyline>
     <GmapInfoWindow
       :options="infoOptions"
@@ -103,9 +103,10 @@ export default {
       }
     },
     async searchRoute() {
+      this.path = []
       const params = {
         origin: this.markers.marker[0].position,
-        direction: this.markers.marker[0].position,
+        direction: this.direction,
       }
       const result = await api.getRoute(params)
       const polyUtil = require('polyline-encoded')
@@ -115,7 +116,6 @@ export default {
       decodeArray.forEach(latlngArray => {
         this.path.push({ lat: latlngArray[0], lng: latlngArray[1] })
       })
-      console.log(this.path)
       console.log(result)
     },
   },
