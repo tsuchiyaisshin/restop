@@ -63,6 +63,7 @@ export default {
   name: 'Map',
   data() {
     return {
+      //aaaaaaaa
       spotName: '',
       markers: markers,
       businessHours: '',
