@@ -78,6 +78,7 @@ export default {
       center: { lat: 135, lng: 50 },
       direction: null,
       path: [],
+      routeData: [],
     }
   },
   mounted() {
@@ -103,6 +104,7 @@ export default {
       }
     },
     async searchRoute() {
+      this.infoWinOpen = false
       this.path = []
       const params = {
         origin: this.markers.marker[0].position,
@@ -116,7 +118,8 @@ export default {
       decodeArray.forEach(latlngArray => {
         this.path.push({ lat: latlngArray[0], lng: latlngArray[1] })
       })
-      console.log(result)
+      this.routeData = result.routes
+      console.log(this.routeData)
     },
   },
 }
