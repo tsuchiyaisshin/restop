@@ -2,9 +2,9 @@
   <div>
     <app-bar></app-bar>
     <route-drawer
-      :active="routeActive"
+      v-if="routeActive"
       :route-data="routeData"
-      @route-close="catchRouteIs"
+      @route-close="catchClose"
     ></route-drawer>
     <router-view @map-view-event="mainMethod"></router-view>
   </div>
@@ -22,11 +22,13 @@ export default {
   }),
   methods: {
     mainMethod(payload) {
+      console.log(payload)
       this.routeActive = true
       this.routeData = payload
     },
-    catchRouteIs() {
-      this.routeData = false
+    catchClose() {
+      this.routeData = []
+      this.routeActive = false
     },
   },
 }

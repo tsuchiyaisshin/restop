@@ -1,33 +1,29 @@
 <template>
-  <v-navigation-drawer v-if="active" absolute permanent right>
+  <v-navigation-drawer width="350" absolute permanent right>
     <template v-slot:prepend>
-      <v-list-item>
-        <div class="d-flex">
-          <v-list-item-title>Route</v-list-item-title>
-          <div class="ml-10 mr-10"></div>
-          <v-list-item-action>
-            <v-btn
-              class="mx-2"
-              fab
-              dark
-              x-small
-              color="red"
-              @click="active = false"
-            >
-              <v-icon dark>
-                mdi-close
-              </v-icon>
-            </v-btn>
-          </v-list-item-action>
-        </div>
-      </v-list-item>
+      <div class="d-flex justify-space-between">
+        <v-list-item-title class="text-left ml-4">Route名を表示</v-list-item-title>
+        <v-list-item-action>
+          <v-btn class="mr-4" fab dark x-small color="red" @click="close()">
+            <v-icon dark>
+              mdi-close
+            </v-icon>
+          </v-btn>
+        </v-list-item-action>
+      </div>
     </template>
 
     <v-divider></v-divider>
 
     <v-timeline dense clipped>
-      <v-timeline-item v-for="item in routeData" :key="item" class="text-left">
+      <v-timeline-item
+        v-for="(item, key) in routeData"
+        :key="key"
+        class="text-left"
+        small
+      >
         <div class="mt-2">
+          <div v-html="item.htmlInstructions"></div>
           {{ item.distance.humanReadable }}
           {{ item.duration.humanReadable }}
         </div>
@@ -40,23 +36,17 @@
 export default {
   name: 'RouteDrawer',
   props: {
-    active: {
-      type: Boolean,
-      default: false,
-    },
     routeData: {
       type: Array,
       default: undefined,
     },
   },
-  data() {
-    return {
-      items: [
-        { title: 'Home', icon: 'mdi-home-city' },
-        { title: 'My Account', icon: 'mdi-account' },
-        { title: 'Users', icon: 'mdi-account-group-outline' },
-      ],
-    }
+  computed: {
+  },
+  methods: {
+    close() {
+      this.$emit('route-close')
+    },
   },
 }
 </script>
