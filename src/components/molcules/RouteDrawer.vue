@@ -2,7 +2,9 @@
   <v-navigation-drawer width="350" absolute permanent right>
     <template v-slot:prepend>
       <div class="d-flex justify-space-between">
-        <v-list-item-title class="text-left ml-4">Route名を表示</v-list-item-title>
+        <v-list-item-title class="text-left ml-4"
+          >Route名を表示</v-list-item-title
+        >
         <v-list-item-action>
           <v-btn class="mr-4" fab dark x-small color="red" @click="close()">
             <v-icon dark>
@@ -41,8 +43,7 @@ export default {
       default: undefined,
     },
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     close() {
       this.$emit('route-close')
