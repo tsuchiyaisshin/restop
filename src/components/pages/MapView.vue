@@ -118,8 +118,8 @@ export default {
       decodeArray.forEach(latlngArray => {
         this.path.push({ lat: latlngArray[0], lng: latlngArray[1] })
       })
-      this.routeData = result.routes
-      console.log(this.routeData)
+      this.routeData = result.routes[0].legs[0].steps
+      this.$emit('map-view-event', this.routeData)
     },
   },
 }

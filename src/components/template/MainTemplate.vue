@@ -1,8 +1,12 @@
 <template>
   <div>
     <app-bar></app-bar>
-    <route-drawer :active="true"></route-drawer>
-    <router-view></router-view>
+    <route-drawer
+      :active="routeActive"
+      :route-data="routeData"
+      @route-close="catchRouteIs"
+    ></route-drawer>
+    <router-view @map-view-event="mainMethod"></router-view>
   </div>
 </template>
 
@@ -12,6 +16,19 @@ import RouteDrawer from '../molcules/RouteDrawer'
 export default {
   name: 'MainTemplate',
   components: { RouteDrawer, AppBar },
+  data: () => ({
+    routeData: [],
+    routeActive: false,
+  }),
+  methods: {
+    mainMethod(payload) {
+      this.routeActive = true
+      this.routeData = payload
+    },
+    catchRouteIs() {
+      this.routeData = false
+    },
+  },
 }
 </script>
 

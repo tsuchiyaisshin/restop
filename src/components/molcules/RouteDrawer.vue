@@ -26,9 +26,12 @@
     <v-divider></v-divider>
 
     <v-timeline dense clipped>
-      <v-timeline-item>timeline item</v-timeline-item>
-      <v-timeline-item>timeline item</v-timeline-item>
-      <v-timeline-item>timeline item</v-timeline-item>
+      <v-timeline-item v-for="item in routeData" :key="item" class="text-left">
+        <div class="mt-2">
+          {{ item.distance.humanReadable }}
+          {{ item.duration.humanReadable }}
+        </div>
+      </v-timeline-item>
     </v-timeline>
   </v-navigation-drawer>
 </template>
@@ -41,7 +44,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    data: {
+    routeData: {
       type: Array,
       default: undefined,
     },

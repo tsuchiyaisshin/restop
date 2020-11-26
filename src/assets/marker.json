@@ -187,6 +187,15 @@
         "lng": 139.608958
       },
       "icon": "co-working-space.svg"
+    },
+    {
+      "title": "FUGLEN COFFEE ROASTERS\n",
+      "time": "9:00 ~ 18:00",
+      "position": {
+        "lat": 35.62142659458812,
+        "lng": 139.57189709286556
+      },
+      "icon": "food.svg"
     }
   ]
 }
