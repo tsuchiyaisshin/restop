@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "1secspot8b264e94": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
