@@ -19,6 +19,11 @@ export default [
         path: '/account',
         component: () => import('../components/pages/Account'),
       },
+      {
+        name: 'Login',
+        path: '/login',
+        component: () => import('../components/pages/Login')
+      }
     ],
   },
 ]
