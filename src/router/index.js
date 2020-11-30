@@ -4,8 +4,8 @@ import routes from './route'
 
 import store from '../store/user'
 
-import { components, AmplifyEventBus, AmplifyPlugin } from 'aws-amplify-vue'
-import Amplify, * as AmplifyModules from 'aws-amplify'
+import { AmplifyEventBus, AmplifyPlugin } from 'aws-amplify-vue'
+import AmplifyModules from 'aws-amplify'
 
 Vue.use(VueRouter)
 Vue.use(AmplifyPlugin, AmplifyModules)
