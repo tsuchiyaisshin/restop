@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login" style="margin-top: 15%">
     <amplify-authenticator></amplify-authenticator>
   </div>
 </template>

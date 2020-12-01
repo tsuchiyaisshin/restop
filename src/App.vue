@@ -2,7 +2,6 @@
   <div id="app">
     <v-app>
       <v-content>
-        <drawer></drawer>
         <router-view></router-view>
       </v-content>
     </v-app>
@@ -10,13 +9,8 @@
 </template>
 
 <script>
-import Drawer from './components/molcules/Drawer'
-
 export default {
   name: 'App',
-  components: {
-    Drawer,
-  },
 }
 </script>
 

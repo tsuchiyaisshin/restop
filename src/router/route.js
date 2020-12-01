@@ -3,6 +3,7 @@ export default [
     name: 'MainTemplate',
     path: '/',
     component: () => import('../components/template/MainTemplate'),
+    meta: { requiresAuth: true },
     children: [
       {
         name: 'MapView',
@@ -19,6 +20,13 @@ export default [
         path: '/account',
         component: () => import('../components/pages/Account'),
       },
+    ],
+  },
+  {
+    name: 'SubTemplate',
+    path: '/',
+    component: () => import('../components/template/SubTemplate'),
+    children: [
       {
         name: 'Login',
         path: '/login',

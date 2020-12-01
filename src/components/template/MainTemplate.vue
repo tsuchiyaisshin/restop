@@ -1,5 +1,6 @@
 <template>
   <div>
+    <drawer></drawer>
     <app-bar></app-bar>
     <route-drawer
       v-if="routeActive"
@@ -13,9 +14,10 @@
 <script>
 import AppBar from '../molcules/AppBar'
 import RouteDrawer from '../molcules/RouteDrawer'
+import Drawer from '../molcules/Drawer'
 export default {
   name: 'MainTemplate',
-  components: { RouteDrawer, AppBar },
+  components: { Drawer, RouteDrawer, AppBar },
   data: () => ({
     routeData: [],
     routeActive: false,
