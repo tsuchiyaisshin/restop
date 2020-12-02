@@ -20,9 +20,9 @@
               Your Profile
             </v-card-title>
             <v-spacer></v-spacer>
-            <v-btn class="ma-4" color="light-green" dark @click="openDialog"
-              >edit</v-btn
-            >
+            <v-btn class="ma-4" color="light-green" dark @click="openDialog">
+              edit
+            </v-btn>
           </div>
           <div class="d-flex text-left ml-4 mt-4">
             <v-list-item-title class="font-weight-medium">
