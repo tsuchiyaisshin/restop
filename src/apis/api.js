@@ -19,5 +19,11 @@ export const api = {
         return result.data
       })
       .catch(result => {})
+  },
+  async updateUser(name) {
+    //TODO: 後でやる
+  },
+  async saveRoute() {
+    //TODO: 後でやる
   }
 }
