@@ -11,4 +11,13 @@ export const api = {
       })
       .catch(result => {})
   },
+  async saveUser(name) {
+    return await service.post('http://localhost:8080/dynamoDb/save', {
+      withCredentials: true,
+    })
+      .then(result => {
+        return result.data
+      })
+      .catch(result => {})
+  }
 }
