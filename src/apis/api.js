@@ -21,9 +21,7 @@ export const api = {
       .catch(result => {})
   },
   async updateUser(name) {
-    //TODO: 後でやる
   },
   async saveRoute() {
-    //TODO: 後でやる
   }
 }
