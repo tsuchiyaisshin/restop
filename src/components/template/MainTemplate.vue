@@ -1,7 +1,7 @@
 <template>
   <div>
     <drawer></drawer>
-    <app-bar></app-bar>
+    <app-bar @map-view-active="catchOpen"></app-bar>
     <route-drawer
       v-if="routeActive"
       :route-data="routeData"
@@ -24,14 +24,16 @@ export default {
   }),
   methods: {
     mainMethod(payload) {
-      console.log(payload)
+      this.routeData = []
       this.routeActive = true
       this.routeData = payload
     },
     catchClose() {
-      this.routeData = []
       this.routeActive = false
     },
+    catchOpen() {
+      this.routeActive = true
+    }
   },
 }
 </script>

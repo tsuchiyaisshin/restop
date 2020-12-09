@@ -29,6 +29,15 @@
         </v-list>
       </v-menu>
     </div>
+    <v-btn
+      class="mt-3 mr-3"
+      icon
+      @click="routeActive"
+    >
+      <v-icon>
+        mdi-map-marker-path
+      </v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 
@@ -41,6 +50,11 @@ export default {
       default: false,
     },
   },
+  methods: {
+    routeActive() {
+      this.$emit('map-view-active')
+    }
+  }
 }
 </script>
 
