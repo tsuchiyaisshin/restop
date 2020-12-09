@@ -1,5 +1,11 @@
 <template>
-  <v-navigation-drawer app mobile-break-point="960" width="260">
+  <v-navigation-drawer
+    v-model="drawer"
+    app
+    :mini-variant="miniVariant"
+    mobile-break-point="960"
+    width="260"
+  >
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="title">
@@ -40,8 +46,16 @@
 </template>
 
 <script>
+import store from '../../store/user'
+
 export default {
   name: 'Drawer',
+  props: {
+    miniVariant: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       items: [
@@ -52,6 +66,16 @@ export default {
       right: null,
     }
   },
+  computed: {
+    drawer: {
+      get () {
+        return this.$store.state.drawer
+      },
+      set (val) {
+        this.$store.commit('setDrawer', val)
+      },
+    },
+  }
 }
 </script>
 

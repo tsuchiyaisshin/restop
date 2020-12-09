@@ -6,11 +6,21 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     user: null,
+    drawer: true,
+  },
+  getters: {
+    getDrawer: state => {
+      return state.drawer
+    },
   },
   mutations: {
     // ユーザー情報保存
     setUser(state, user) {
       state.user = user
+    },
+
+    setDrawer(state, drawer) {
+      state.drawer = drawer
     },
   },
 })

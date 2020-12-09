@@ -12,16 +12,15 @@ export const api = {
       .catch(result => {})
   },
   async saveUser(name) {
-    return await service.post('http://localhost:8080/dynamoDb/save', {
-      withCredentials: true,
-    })
+    return await service
+      .post('http://localhost:8080/dynamoDb/save', {
+        withCredentials: true,
+      })
       .then(result => {
         return result.data
       })
       .catch(result => {})
   },
-  async updateUser(name) {
-  },
-  async saveRoute() {
-  }
+  async updateUser(name) {},
+  async saveRoute() {},
 }
