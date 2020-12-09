@@ -46,8 +46,6 @@
 </template>
 
 <script>
-import store from '../../store/user'
-
 export default {
   name: 'Drawer',
   props: {
@@ -68,14 +66,14 @@ export default {
   },
   computed: {
     drawer: {
-      get () {
+      get() {
         return this.$store.state.drawer
       },
-      set (val) {
+      set(val) {
         this.$store.commit('setDrawer', val)
       },
     },
-  }
+  },
 }
 </script>
 
