@@ -9,7 +9,7 @@
           : $emit('input', !value)
       "
     >
-      <v-icon>
+      <v-icon v-if="$vuetify.breakpoint.smAndDown">
         mdi-dots-vertical-circle-outline
       </v-icon>
     </v-btn>
