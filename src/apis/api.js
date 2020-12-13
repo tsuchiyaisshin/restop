@@ -21,6 +21,15 @@ export const api = {
       })
       .catch(result => {})
   },
-  async updateUser(name) {},
+  async updateUser(name) {
+    return await service
+      .post('http://localhost:8080/dynamoDb/update', {
+        withCredentials: true,
+      })
+      .then(result => {
+        return result.data
+      })
+      .catch(result => {})
+  },
   async saveRoute() {},
 }
