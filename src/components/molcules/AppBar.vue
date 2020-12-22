@@ -1,6 +1,7 @@
 <template>
   <v-app-bar color="white" elevate-on-scroll>
     <v-btn
+      v-if="$vuetify.breakpoint.smAndDown"
       class="mt-3"
       icon
       @click="
@@ -9,10 +10,13 @@
           : $emit('input', !value)
       "
     >
-      <v-icon v-if="$vuetify.breakpoint.smAndDown">
+      <v-icon>
         mdi-dots-vertical-circle-outline
       </v-icon>
     </v-btn>
+    <div class="mt-5">
+      {{ $store.state.user.username }}
+    </div>
     <v-spacer></v-spacer>
 
     <div class="text-center">

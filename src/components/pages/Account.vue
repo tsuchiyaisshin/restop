@@ -2,7 +2,7 @@
   <v-container>
     <v-row align="center" justify="center" no-gutters>
       <div class="display-1 mr-3">
-        Welcome! Senshu Taro!
+        Welcome! {{ $store.state.user.username }}!
       </div>
       <v-avatar size="100">
         <v-img
@@ -29,7 +29,7 @@
               Full Name:
             </v-list-item-title>
             <v-list-item-title class="text-right mr-4">
-              Senshu Taro
+              {{ $store.state.user.username }}
             </v-list-item-title>
           </div>
           <div class="ml-4 mr-4">
@@ -82,7 +82,7 @@
             :rules="[() => !!name || 'This field is required']"
             :error-messages="errorMessages"
             label="Full Name"
-            placeholder="Senshu Taro"
+            :placeholder="$store.state.user.username"
             required
           ></v-text-field>
         </v-card-text>

@@ -13,7 +13,7 @@ export const api = {
   },
   async saveUser(name) {
     return await service
-      .post('http://localhost:8080/dynamoDb/save', {
+      .post('http://localhost:8080/user/save', {
         withCredentials: true,
       })
       .then(result => {
@@ -23,7 +23,7 @@ export const api = {
   },
   async updateUser(name) {
     return await service
-      .post('http://localhost:8080/dynamoDb/update', {
+      .post('http://localhost:8080/user/update', {
         withCredentials: true,
       })
       .then(result => {
