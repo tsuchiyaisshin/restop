@@ -15,7 +15,7 @@
       </v-icon>
     </v-btn>
     <div class="mt-5">
-      {{ $store.state.user.username }}
+      {{ $store.state.username }}
     </div>
     <v-spacer></v-spacer>
 

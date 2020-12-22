@@ -1,9 +1,7 @@
 <template>
   <v-container>
     <v-row align="center" justify="center" no-gutters>
-      <div class="display-1 mr-3">
-        Welcome! {{ $store.state.user.username }}!
-      </div>
+      <div class="display-1 mr-3">Welcome! {{ $store.state.username }}!</div>
       <v-avatar size="100">
         <v-img
           lazy-src="https://picsum.photos/id/11/10/6"
@@ -29,7 +27,7 @@
               Full Name:
             </v-list-item-title>
             <v-list-item-title class="text-right mr-4">
-              {{ $store.state.user.username }}
+              {{ $store.state.username }}
             </v-list-item-title>
           </div>
           <div class="ml-4 mr-4">
@@ -119,15 +117,10 @@
 
 <script>
 export default {
-  name: 'Account',
+  name: '',
   data: () => ({
     errorMessages: '',
     name: null,
-    address: null,
-    city: null,
-    state: null,
-    zip: null,
-    country: null,
     formHasErrors: false,
     dialog: false,
   }),
@@ -136,11 +129,6 @@ export default {
     form() {
       return {
         name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        country: this.country,
       }
     },
   },
@@ -172,6 +160,10 @@ export default {
         if (!this.form[f]) this.formHasErrors = true
 
         this.$refs[f].validate(true)
+
+        if (!this.formHasErrors) {
+          this.$store.commit('setUsername', this.name)
+        }
       })
     },
     editImage() {

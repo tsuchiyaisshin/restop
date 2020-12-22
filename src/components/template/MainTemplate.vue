@@ -15,6 +15,8 @@
 import AppBar from '../molcules/AppBar'
 import RouteDrawer from '../molcules/RouteDrawer'
 import Drawer from '../molcules/Drawer'
+import store from '../../store/user'
+
 export default {
   name: 'MainTemplate',
   components: { Drawer, RouteDrawer, AppBar },
@@ -22,6 +24,9 @@ export default {
     routeData: [],
     routeActive: false,
   }),
+  mounted() {
+    store.commit('setUsername', store.state.user.username)
+  },
   methods: {
     mainMethod(payload) {
       this.routeData = []
