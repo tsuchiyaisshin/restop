@@ -80,7 +80,7 @@
             :rules="[() => !!name || 'This field is required']"
             :error-messages="errorMessages"
             label="Full Name"
-            :placeholder="$store.state.user.username"
+            :placeholder="$store.state.username"
             required
           ></v-text-field>
         </v-card-text>
@@ -116,6 +116,8 @@
 </template>
 
 <script>
+import { api } from '../../apis/api'
+
 export default {
   name: '',
   data: () => ({
@@ -155,7 +157,10 @@ export default {
     },
     submit() {
       this.formHasErrors = false
-
+      const body = {
+        userId: this.$store.state.user.username,
+        name: this.name,
+      }
       Object.keys(this.form).forEach(f => {
         if (!this.form[f]) this.formHasErrors = true
 
@@ -163,8 +168,10 @@ export default {
 
         if (!this.formHasErrors) {
           this.$store.commit('setUsername', this.name)
+          api.saveUser(body)
         }
       })
+      this.dialog = false
     },
     editImage() {
       console.log('click')

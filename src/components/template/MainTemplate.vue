@@ -16,6 +16,7 @@ import AppBar from '../molcules/AppBar'
 import RouteDrawer from '../molcules/RouteDrawer'
 import Drawer from '../molcules/Drawer'
 import store from '../../store/user'
+import { api } from '../../apis/api'
 
 export default {
   name: 'MainTemplate',
@@ -25,7 +26,13 @@ export default {
     routeActive: false,
   }),
   mounted() {
-    store.commit('setUsername', store.state.user.username)
+    const body = {
+      userId: store.state.user.username,
+    }
+    const result = api.getUser(body)
+    result.then(val => {
+      store.commit('setUsername', val.name)
+    })
   },
   methods: {
     mainMethod(payload) {
