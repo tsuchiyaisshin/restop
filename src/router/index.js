@@ -4,44 +4,28 @@ import routes from './route'
 
 import store from '../store/user'
 
-import { AmplifyEventBus, AmplifyPlugin } from 'aws-amplify-vue'
 import AmplifyModules from 'aws-amplify'
 
+import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components'
+
 Vue.use(VueRouter)
-Vue.use(AmplifyPlugin, AmplifyModules)
+Vue.use(AmplifyModules)
+
+onAuthUIStateChange((nextAuthState, authData) => {
+  if (nextAuthState === AuthState.SignedIn) {
+    store.commit('setUser', authData)
+    router.push({ path: '/' })
+    console.log('user successfully signed in!')
+    console.log('user data: ', authData)
+  }
+  if (!authData) {
+    router.push({ path: '/login' })
+    store.commit('setUser', null)
+    console.log('user is not signed in...')
+  }
+})
 
 let user
-
-getUser().then(user => {
-  if (user) {
-    router.push({ path: '/' })
-  }
-})
-
-function getUser() {
-  return Vue.prototype.$Amplify.Auth.currentAuthenticatedUser()
-    .then(data => {
-      if (data && data.signInUserSession) {
-        store.commit('setUser', data)
-        return data
-      }
-    })
-    .catch(() => {
-      store.commit('setUser', null)
-      return null
-    })
-}
-
-AmplifyEventBus.$on('authState', async state => {
-  if (state === 'signedOut') {
-    user = null
-    store.commit('setUser', null)
-    router.push({ path: '/login' })
-  } else if (state === 'signedIn') {
-    user = await getUser()
-    router.push({ path: '/' })
-  }
-})
 
 const router = new VueRouter({
   mode: 'history',
@@ -51,7 +35,7 @@ const router = new VueRouter({
 
 router.beforeResolve(async (to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    user = await getUser()
+    user = store.state.user
     if (!user) {
       return next({
         path: '/login',
