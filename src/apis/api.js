@@ -39,7 +39,9 @@ export const api = {
       .then(result => {
         return result.data
       })
-      .catch(result => {})
+      .catch(result => {
+        this.saveUser(body)
+      })
   },
   async saveRoute() {},
 }

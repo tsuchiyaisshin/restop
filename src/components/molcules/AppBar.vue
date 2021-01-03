@@ -29,7 +29,7 @@
           </v-btn>
         </template>
         <v-list>
-          <amplify-sign-out class="pr-3 pl-3 pb-n10"></amplify-sign-out>
+          <amplify-sign-out button-text="Sign Out"></amplify-sign-out>
         </v-list>
       </v-menu>
     </div>
