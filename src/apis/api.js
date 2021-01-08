@@ -43,5 +43,41 @@ export const api = {
         this.saveUser(body)
       })
   },
+  async getSpot(body) {
+    return await service
+      .post('http://localhost:8080/spot/get', body, {
+        withCredentials: true,
+      })
+      .then(result => {
+        return result.data
+      })
+  },
+  async saveSpot(body) {
+    return await service
+      .post('http://localhost:8080/spot/save', body, {
+        withCredentials: true,
+      })
+      .then(result => {
+        return result.data
+      })
+  },
+  async updateSpot(body) {
+    return await service
+      .post('http://localhost:8080/spot/update', body, {
+        withCredentials: true,
+      })
+      .then(result => {
+        return result.data
+      })
+  },
+  async deleteSpot(body) {
+    return await service
+      .post('http://localhost:8080/spot/update', body, {
+        withCredentials: true,
+      })
+      .then(result => {
+        return result.data
+      })
+  },
   async saveRoute() {},
 }
