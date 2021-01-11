@@ -7,6 +7,16 @@
 
 本来このアプリは、アドレスホッパーとして生活を体験した際に実際に街中を歩き回り感じた、<br>
 休憩場所の無さやその時に感じた苦労を元に当事者デザインとして作成しました。
+
+##アプリ機能
+
+休憩スポットをワンクリックで探索。
+
+![](https://user-images.githubusercontent.com/70528501/104123784-7b106480-5390-11eb-815f-4f67c697936c.png)
+
+自分専用の休憩スポットを追加
+
+![](https://user-images.githubusercontent.com/70528501/104123760-5c11d280-5390-11eb-9cb3-034fd3eec8af.png)
 ## Project setup
 ```
 npm install
