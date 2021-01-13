@@ -17,6 +17,20 @@
 自分専用の休憩スポットを追加
 
 ![](https://user-images.githubusercontent.com/70528501/104123760-5c11d280-5390-11eb-9cb3-034fd3eec8af.png)
+
+## commit message rules
+
+prefixをつける
+
+feat: 新しい機能
+fix: バグの修正
+docs: ドキュメントのみの変更
+style: 空白、フォーマット、セミコロン追加など
+refactor: 仕様に影響がないコード改善(リファクタ)
+perf: パフォーマンス向上関連
+test: テスト関連
+chore: ビルド、補助ツール、ライブラリ関連
+
 ## Project setup
 ```
 npm install
