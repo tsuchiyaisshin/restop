@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import {api} from "../../apis/api";
+import { api } from '../../apis/api'
 
 export default {
   name: 'EditNameCard',
@@ -114,11 +114,11 @@ export default {
   watch: {
     name() {
       this.errorMessages = ''
-    }
+    },
   },
 
   methods: {
-    //TODO: formのvalidationを後々修正する。
+    // TODO: formのvalidationを後々修正する。
     addressCheck() {
       this.errorMessages = this.address && !this.name ? `Hey! I'm required` : ''
 
