@@ -1,11 +1,11 @@
 <template>
   <v-app-bar color="white" elevate-on-scroll>
     <v-btn
-      v-if="$vuetify.breakpoint.smAndDown"
+      v-if="$vuetify.breakpoint.mobile"
       class="mt-3"
       icon
       @click="
-        $vuetify.breakpoint.smAndDown
+        $vuetify.breakpoint.mobile
           ? $store.commit('setDrawer', !$store.state.drawer)
           : $emit('input', !value)
       "

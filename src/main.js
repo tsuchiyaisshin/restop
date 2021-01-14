@@ -20,6 +20,7 @@ Vue.use(
       libraries: 'places',
       region: 'JP',
       language: 'ja',
+      v: '3.26',
     },
   },
   VueAxios,

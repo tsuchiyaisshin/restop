@@ -1,11 +1,12 @@
 <template>
   <GmapMap
+    ref="mapRef"
     class="ma-3"
     :center="center"
     :zoom="15"
-    map-type-id="satellite"
+    map-type-id="terrain"
     :style="
-      $vuetify.breakpoint.smAndDown
+      $vuetify.breakpoint.mobile
         ? 'width: 300px; height: 600px'
         : 'width: 98%; height: 800px'
     "
@@ -75,7 +76,7 @@ export default {
       info: '',
       infoWindowPos: null,
       infoWinOpen: false,
-      center: { lat: 135, lng: 50 },
+      center: { lat: 35.617325, lng: 139.564624 },
       direction: null,
       path: [],
       routeData: [],
@@ -89,6 +90,10 @@ export default {
         vm.center.lng = position.coords.longitude
         vm.markers.marker[0].position.lat = position.coords.latitude
         vm.markers.marker[0].position.lng = position.coords.longitude
+      })
+      console.log(this.center)
+      this.$refs.mapRef.$mapPromise.then((map) => {
+        map.panTo({lat: 35.617325, lng: 139.564624})
       })
     }
   },

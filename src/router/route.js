@@ -1,6 +1,5 @@
 export default [
   {
-    name: 'MainTemplate',
     path: '/',
     component: () => import('../components/template/MainTemplate'),
     meta: { requiresAuth: true },
