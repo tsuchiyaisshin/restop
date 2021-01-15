@@ -91,10 +91,6 @@ export default {
         vm.markers.marker[0].position.lat = position.coords.latitude
         vm.markers.marker[0].position.lng = position.coords.longitude
       })
-      console.log(this.center)
-      this.$refs.mapRef.$mapPromise.then((map) => {
-        map.panTo({lat: 35.617325, lng: 139.564624})
-      })
     }
   },
   methods: {
