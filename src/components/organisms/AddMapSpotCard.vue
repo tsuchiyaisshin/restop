@@ -4,9 +4,9 @@
       Add Map Spot
     </v-card-title>
     <v-card-text>
-      sorry.. I develop now..
+      <select-position-map :title="position" :marker-icon="icons.get(markerIcon)"></select-position-map>
     </v-card-text>
-    <v-card-text>
+    <v-card-text class="mt-n3">
       <div class="d-flex">
         <div class="mt-1 pt-3 font-weight-medium">
           Position name
@@ -106,8 +106,10 @@
 </template>
 
 <script>
+import SelectPositionMap from '../atoms/SelectPositionMap'
 export default {
   name: 'AddMapSpotCard',
+  components: { SelectPositionMap },
   data: () => ({
     position: '',
     startTime: '',

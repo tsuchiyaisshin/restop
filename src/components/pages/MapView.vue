@@ -35,9 +35,6 @@
         {{ spotName }}
       </div>
       <div class="body-2 text-left">営業時間: {{ businessHours }}</div>
-      <div class="text-left">
-        混み具合:
-      </div>
       <br />
       <div>
         <v-btn color="blue" dark @click="searchRoute">経路を表示</v-btn>
