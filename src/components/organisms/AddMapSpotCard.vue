@@ -4,7 +4,7 @@
       Add Map Spot
     </v-card-title>
     <v-card-text>
-      <select-position-map :title="position" :marker-icon="icons.get(markerIcon)"></select-position-map>
+      <select-position-map :title="position" :marker-icon="icons.get(markerIcon)" @set-position="position = $event"></select-position-map>
     </v-card-text>
     <v-card-text class="mt-n3">
       <div class="d-flex">
@@ -12,7 +12,7 @@
           Position name
         </div>
         <v-spacer></v-spacer>
-        <v-text-field v-model="position" placeholder="ガスト生田駅前店">
+        <v-text-field v-model="title" placeholder="ガスト生田駅前店">
         </v-text-field>
       </div>
       <div class="d-flex">
@@ -101,16 +101,21 @@
           </template>
         </v-select>
       </div>
+      <div class="mt-10 text-right">
+        <v-btn dark color="light-green" @click="submit">Submit</v-btn>
+      </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
 import SelectPositionMap from '../atoms/SelectPositionMap'
+import {api} from "../../apis/api";
 export default {
   name: 'AddMapSpotCard',
   components: { SelectPositionMap },
   data: () => ({
+    title: '',
     position: '',
     startTime: '',
     endTime: '',
@@ -131,6 +136,18 @@ export default {
       this.iconSvg = require('../../assets/markers/' + this.icons.get(val))
     },
   },
+  methods: {
+    submit() {
+      const body = {
+        title: this.title,
+        position: this.position,
+        icon: this.icons.get(this.markerIcon),
+        time: this.startTime + ' ~ ' + this.endTime
+      }
+      console.log(body)
+      api.saveSpot(body)
+    }
+  }
 }
 </script>
 

@@ -86,6 +86,7 @@ export default {
         this.dragText = 'lock'
       }
       console.log(this.marker.position)
+      this.$emit("set-position", this.marker.position);
     },
     updatePosition(location) {
       this.marker.position = {
